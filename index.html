@@ -570,11 +570,10 @@ $('.front-bg').each(function() {
     $(this).css("background-color", "rgba(255, 255, 255, 0.0)");
 });
 
+$(".container").css('height', $(this).height() + "px");
+
 // Run the following when the window is resized, and also trigger it once to begin with.
 $(window).resize(function () {
-    $(".container").css('height', $(this).height() + "px");
-
-
   front_resize_text_divs.each(function(){
     //console.log($(this).css("background-color", "rgba(255, 255, 255, 0.0)"));
     // console.log('we in here');
