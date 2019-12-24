@@ -1,0 +1,608 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CPoppins%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CMontserrat%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CRaleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%7CHomemade+Apple%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&amp;subset=latin-ext&amp;ver=1.0.0" type="text/css" media="all">
+  <title>Replicate</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color:red;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero {
+    background-image: url('ellaper2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    height: 100%;
+}
+
+.hero2 {
+    background-image: url('mid.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height:100%;
+}
+
+.hero3 {
+    background-image: url('transportation.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height:100%;
+}
+
+.hero4 {
+    background-image: url('sweden.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height:100%;
+}
+
+.info {
+    padding:10vmin;
+    background:#ebfcfd
+}
+
+.info-image-img {
+    display:block;
+    margin: auto auto;
+}
+
+.info-title {
+    color:rgb(51, 51, 51);
+    display:block;
+    margin-top:20px;
+    margin-bottom:15px;
+    font-family:Poppins, sans-serif;
+    font-size:30px;
+    font-weight:300;
+    height:40px;
+    line-height:40.5px;
+    text-align:center;
+    height: 100%;
+}
+
+.info-paragraph {
+    color:rgb(148, 148, 148);
+    display:block;
+    font-family:Georgia, serif;
+    font-size:14px;
+    font-weight:400;
+    line-height:31px;
+    margin-top:10px;
+    outline-color:rgb(148, 148, 148);
+    outline-style:none;
+    outline-width:0px;
+    text-align:center;
+    vertical-align:baseline;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+.info-left-img {
+    background: white;
+    width: 350px;
+    height: px;
+    float:left;
+}
+
+.info-left-img-inner {    
+    background-image: url('hotel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    border-color: white;
+    border-width: 20px;
+}
+
+.next {
+    margin: auto auto;
+    /* text-align: center; */
+    margin-top: 100px;
+    margin-bottom: 70px;
+    text-align: center;
+    padding:0 10vmin;
+}
+
+.next-inner {
+}
+
+.block {
+    padding-top:30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    display:inline-block;
+}
+
+
+.block-image {
+    width: 450px;
+    max-width: 75vmin;
+    max-height: 50vmin;
+    height: 300px;
+    margin: auto auto;
+}
+
+.block-image-inner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.block-title {
+    color: #393a3a;
+    margin-top: 30px;
+    font-size:18px;
+    font-weight: 500;
+    text-align: center;
+    font-family: Poppins,sans-serif;
+    line-height: 1.4em;
+}
+
+.block-paragraph {
+    display: block;
+    padding: 0px 25px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 31px;
+    font-family: Georgia,serif;
+    font-weight: 400;
+    color: #949494;
+}
+
+.hero-title {
+    color:rgb(255, 255, 255);
+    display:inline-block;
+    font-family:Poppins, sans-serif;
+    font-weight:500;
+    outline-color:rgb(255, 255, 255);
+    outline-style:none;
+    outline-width:0px;
+    text-transform:capitalize;
+    vertical-align:baseline;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    margin: auto;
+}
+
+.rsvp {
+    background-color:rgba(0, 0, 0, 0);
+    border-color:rgb(230, 216, 209);
+    border-style:solid;
+    border-width:2px;
+    box-sizing:border-box;
+    color:rgb(51, 51, 51);
+    cursor:pointer;
+    display:inline-block;
+    font-family:Poppins, sans-serif;
+    font-size:12px;
+    font-style:normal;
+    font-weight:500;
+    height:43px;
+    letter-spacing:0.5px;
+    line-height:39px;
+    outline-color:rgb(51, 51, 51);
+    outline-style:none;
+    outline-width:0px;
+    padding-bottom:0px;
+    padding-left:32px;
+    padding-right:32px;
+    padding-top:0px;
+    position:relative;
+    text-align:center;
+    text-decoration-color:rgb(51, 51, 51);
+    text-decoration-line:none;
+    text-decoration-style:solid;
+    text-transform:uppercase;
+    transition-delay:0s, 0s, 0s;
+    transition-duration:0.15s, 0.15s, 0.15s;
+    transition-property:color, background-color, border-color;
+    transition-timing-function:ease-out, ease-out, ease-out;
+    vertical-align:baseline;
+    width:102.688px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+.rsvp:hover {
+    background-color:white;
+}
+
+
+
+.rsvp-top:hover {
+    background-color:rgba(0, 0, 0, 0.65);
+}
+
+.front-resize-text {
+    text-align: center;
+    color: white;
+}
+
+#front-title {
+    font-family:Poppins, sans-serif;
+    
+    font-weight:100;
+}
+
+#front-title-below {
+    font-family:Georgia, serif;
+    font-weight:300;
+}
+
+#rsvp-top {
+    font-family:Poppins, sans-serif;
+    font-style:normal;
+    cursor: pointer;
+    color: white;
+    font-weight:500;
+    background-color:rgba(0, 0, 0, 0.25);
+    border-color:rgb(230, 216, 209, 0.75);
+    border-style:solid;
+    border-width:2px;
+    padding:0.6vh 2vh;
+    letter-spacing:0.5px;
+    text-decoration-line:none;
+    -webkit-font-smoothing:antialiased;   
+}
+
+#rsvp-top:hover {
+    background-color:rgba(0, 0, 0, 0.55);
+    border-color:rgb(230, 216, 209, 0.95);
+    border-style:solid;
+    border-width:2px;
+}
+
+#front-more-information {
+    display:block;
+    box-sizing:border-box;
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    display:block;
+    font-family:Georgia, Times, "Times New Roman", serif;
+    font-style:italic;
+    height:20px;
+    letter-spacing:1.2px;
+    line-height:20px;
+    text-size-adjust:100%;
+    text-transform:uppercase;
+    text-decoration: none;
+}
+
+#front-more-information:hover {
+    letter-spacing:2.2px;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="front-bg" id="front-top" style="height:32vh; background-color: rgba(255, 0, 0, 0.2);"></div>
+            <div class="front-resize-text front-bg" id="front-title" style="height:12vh; background-color: rgba(0, 255, 0, 0.2);">
+                <h2 >Ella & Per</h2>
+            </div>
+            <div class="front-resize-text front-bg" style="height:4vh; background-color: rgba(0, 0, 255, 0.2);">
+             
+            </div>
+            <div class="front-resize-text front-bg" style="height:5.5vh; background-color: rgba(255, 255, 0, 0.2);">
+              <p id="front-title-below">July 25th | Hyssna, Sweden</p>
+            </div>
+            <div class="front-bg" style="height:15vh; background-color: rgba(255, 0, 255, 0.2);"></div>
+            <div class="front-resize-text front-bg" style="height:2.5vh; background-color: rgba(0, 255, 255, 0.2);">
+               <a href="" id="rsvp-top">RSVP</a>    
+            </div>
+            <div class="front-bg" style="height:20vh; background-color: rgba(255, 255, 255, 0.2);"></div>
+            <div class="front-resize-text front-bg" style="height:2vh; background-color: rgba(0, 0, 0, 0.2);">
+                <a href="#testtest" id="front-more-information"><p style="margin: 0 0;">More Information</p>
+                        <div style="padding: 1vh;"><img src="arrow.png" id="front-bottom" style="width:1.2vh; min-width: 12px; min-height: 12px;  height:1.2vh;"></div>
+                    </a>
+            </div>
+        </div>
+    </div>
+    <div class="info" id="testtest">
+                <img class="info-image-img" src="flower.png">
+                <div>
+                <h2 class="info-title">We’re Getting Married!</h2>
+                </div>
+                <div>
+                <p class="info-paragraph">Marnie McCloud and Jack Blackwood first crossed paths at a mutual friend’s party. After a crazy night of dancing, drinking, and getting to know each other, the two instantly knew they had to meet up again. That was five years ago, and since then a single day hasn’t passed that they haven’t spent together. Completely head over heels in love, Marnie & Jack have become best friends and life partners, and now they’ve decided to make it official. We’re both proud and thrilled to invite you to join Marnie & Jack as they celebrate their love in a magical ceremony on April 15th, 2016 at the Lowndes Grove Plantation in South Carolina. Can’t wait to see you there!</p>
+                </div>
+    </div>
+
+    <div class="next">
+        <h2 class="info-title">Wedding Details</h2>
+        <p class="info-paragraph">The wedding will take place in the village where Per grow up. Other than a rich Wikipedia page, it has lots of information.</p>
+        <div class="next-inner">
+            <div class="block">
+                <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(kyrka.jpg)"></div>
+                </div>
+                <h5 class="block-title">Ceremony</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+            <div class="block">
+                    <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(lada.jpg)"></div>
+                </div>
+                <h5 class="block-title">Reception</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+            <div class="block">
+                    <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(clothes.jpg)"></div>
+                </div>
+                <h5 class="block-title">What to wear</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+        </div>      
+    </div>
+
+    <div class="container" style="height:40vh;">
+        <div class="hero2" style="background-image: url('mid.jpg');">
+            <div class="front-resize-text" style="height: 45%; background-color: rgba(255, 0, 0, 0.0);"></div>
+            <div class="front-resize-text" style="height: 12.33%; background-color: rgba(255, 0, 255, 0.0);">
+                <h1 class="hero-title">Accomendations</h1>
+            </div>
+        </div>
+    </div>
+<div class="next">
+    <h2 class="info-title">Where to stay</h2>
+    <p class="info-paragraph">The wedding will take place in the village where Per grow up. Other than a rich Wikipedia page, it has lots of information.</p>
+    <div class="next-inner">
+        <div class="block">
+            <div class="block-image">
+                <div class="block-image-inner" style="background-image: url(hotel.jpg)"></div>
+            </div>
+            <h5 class="block-title">Hotel</h5>
+            <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+        </div>
+        <div class="block">
+                <div class="block-image">
+                <div class="block-image-inner" style="background-image: url(satila.jpg)"></div>
+            </div>
+            <h5 class="block-title">Local</h5>
+            <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+        </div>
+    </div>      
+</div>
+
+<div class="container" style="height:40vh;">
+    <div class="hero3">
+            <div class="front-resize-text" style="height: 45%; background-color: rgba(255, 0, 0, 0.0);"></div>
+            <div class="front-resize-text" style="height: 12.33%; background-color: rgba(255, 0, 255, 0.0);">
+                <h1 class="hero-title">Transportation</h1>
+            </div>
+    </div>
+    
+</div>
+<div class="next">
+    <h2 class="info-title">How to get there</h2>
+    <p class="info-paragraph">The wedding will take place in the village where Per grow up. Other than a rich Wikipedia page, it has lots of information.</p>
+    <div class="next-inner">
+        <div class="block">
+            <div class="block-image">
+                <div class="block-image-inner" style="background-image: url(bus.jpg)"></div>
+            </div>
+            <h5 class="block-title">Bus</h5>
+            <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+        </div>
+        <div class="block">
+                <div class="block-image">
+                <div class="block-image-inner" style="background-image: url(rental.jpg)"></div>
+            </div>
+            <h5 class="block-title">Car Rental</h5>
+            <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+        </div>
+
+        <div class="block">
+                <div class="block-image">
+                <div class="block-image-inner" style="background-image: url(taxi.jpg)"></div>
+            </div>
+            <h5 class="block-title">Taxi</h5>
+            <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+        </div>
+    </div>      
+</div>
+
+<div class="container" style="height:40vh;">
+        <div class="hero4">
+                <div class="front-resize-text" style="height: 45%; background-color: rgba(255, 0, 0, 0.0);"></div>
+                <div class="front-resize-text" style="height: 12.33%; background-color: rgba(255, 0, 255, 0.0);">
+                    <h1 class="hero-title">Travel</h1>
+                </div>
+        </div>
+        
+    </div>
+    <div class="next">
+        <h2 class="info-title">Travelling to Scandinavia</h2>
+        <p class="info-paragraph">The wedding will take place in the village where Per grow up. Other than a rich Wikipedia page, it has lots of information.</p>
+        <div class="next-inner">
+            <div class="block">
+                <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(gbg.jpg)"></div>
+                </div>
+                <h5 class="block-title">Gothenburg</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+            <div class="block">
+                    <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(stockholm.webp)"></div>
+                </div>
+                <h5 class="block-title">Stockholm</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+    
+            <div class="block">
+                    <div class="block-image">
+                    <div class="block-image-inner" style="background-image: url(copenhagen.jpg)"></div>
+                </div>
+                <h5 class="block-title">Copenhagen</h5>
+                <p class="block-paragraph"> Hyssna gamla kyrka is a beautiful National Historic Landmark boasting 1786-era architecture. </p>
+            </div>
+        </div>      
+    </div>
+
+<div class="info">
+    <h2 class="info-title" style="font-size:45px;">We Can't Wait To See You!</h2>
+    <p class="info-paragraph" style="font-size:18px;">Please let us know if you'll be able to make it.</p>
+    <div style="text-align: center; margin-top: 45px;"><a href="" class="rsvp">RSVP</a></div>
+</div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+console.log('script loaded');
+
+
+function parallex_scrolling(aspect, vh, speed, class_name) {
+    let st = $(this).scrollTop();
+    let scroll_begin = $(class_name).offset().top - $(window).height();
+    let scroll_end = $(class_name).offset().top + $(class_name)[0].getBoundingClientRect().height;
+    //console.log("st: " + st + " sb: " + scroll_begin + " se: " + scroll_end);
+    let t = (st - scroll_begin) / (scroll_end - scroll_begin);
+    let screen_vh = $(this).height() * vh;
+    let current_aspect = $(window).width() / screen_vh;
+    let potential_height = $(window).width() / aspect;
+    let move = potential_height - screen_vh;
+    let smallest_width = aspect * screen_vh;
+    if ($(window).width() < (smallest_width)) {
+        t *= 0.0;
+    } else {
+        t = (1.0 - speed)*0.5 + t * speed;
+    }
+    let pos = -t * move;
+    $(class_name).css("background-position-y", pos + "px");
+}
+
+function fade_hero_title(fade_dur = 5.0) {
+    var st = $(this).scrollTop();
+    $('.hero-title').each(function() {
+        var t1_min = $(this).offset().top - $(window).height();
+        var t1_max = t1_min + fade_dur * $(this).height();
+        var t2_min = $(this).offset().top - fade_dur * $(this).height();
+        var t2_max = $(this).offset().top;
+        var t1 = (st - t1_min) / (t1_max - t1_min);
+        var t2 = (st - t2_min) / (t2_max - t2_min);
+        t1 = Math.min(1.0, Math.max(0, t1));
+        t2 = 1.0 - Math.min(1.0, Math.max(0, t2));
+        var alpha = t1 * t2;
+        $(this).css("color", "rgba(255, 255, 255, " + alpha + ")");
+    });
+}
+
+var rsvp_hover_alpha = 0.75;
+$('#rsvp-top').hover(function(e) {
+    if (e.type == 'mouseenter') {
+        $("#rsvp-top").css("background-color","rgba(0, 0, 0," + 0.75 * rsvp_hover_alpha + ")");
+    } else {
+        $("#rsvp-top").css("background-color","rgba(0, 0, 0," + 0.25 * rsvp_hover_alpha + ")");
+    }
+});
+$(window).scroll(function() {
+    let st = $(this).scrollTop();
+    let speed = 0.65;
+
+    $(".hero").css("background-position-y", (st * speed) + "px");
+    if (st > 1500) {
+        $(".hero2").css("background-position-y", (-(st-1500) * speed*0.2) + "px");
+    }
+    fade_hero_title();
+    parallex_scrolling(2400.0 / 985.0, 0.4, 0.4, ".hero3");
+    parallex_scrolling(1824.0 / 2400.0, 0.4, 0.2, ".hero2");
+    parallex_scrolling(1469.0 / 1313.0, 0.4, 0.2, ".hero4");
+
+    // Fade top
+    wh = $(this).height();
+    start = wh * 0.0;
+    end = wh * 0.4;
+    t = (st - start) / (end - start);
+    t = 1.0 - t;
+    if (st > wh * 0.) {
+        $(".front-bg").css("color","rgba(255, 255, 255," + t + ")");
+        $(".front-bg").children().css("color","rgba(255, 255, 255," + t + ")");
+        $("#rsvp-top").css("color","rgba(255, 255, 255," + t + ")");
+        $("#rsvp-top").css("background-color","rgba(0, 0, 0," + 0.25*t + ")");
+        rsvp_hover_alpha = t;
+        $("#rsvp-top").css("border-color","rgba(230, 216, 209," + t + ")");
+        $("#front-bottom").css("opacity", t);
+    }
+});
+
+
+
+var front_resize_text_divs = $('.front-resize-text');
+var front_top = $('#front-top');
+var front_bottom = $('#front-bottom');
+
+$('.front-bg').each(function() {
+    $(this).css("background-color", "rgba(255, 255, 255, 0.0)");
+});
+
+// Run the following when the window is resized, and also trigger it once to begin with.
+$(window).resize(function () {
+  front_resize_text_divs.each(function(){
+    //console.log($(this).css("background-color", "rgba(255, 255, 255, 0.0)"));
+    // console.log('we in here');
+    // Get the current height of the div and save it as a variable.
+    var height = Math.max(26, $(this).height());
+    // Set the font-size and line-height of the text within the div according to the current height.
+    $(this).css({
+        'font-size': (height/2) + 'px',
+        'line-height': height + 'px'
+    })
+  });
+
+  var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
+  if (delta > 0.0) {
+      adjustment = 0.32 - (delta+15)/$(window).height();
+      // console.log(100*adjustment);
+      front_top.css('height', 100*adjustment + "vh");
+  } else {
+    front_top.css('height', 32 + "vh");
+  }
+
+});
+
+$(window).trigger('resize');
+
+$('#front-more-information').on('click', function(e) {
+    console.log('cliock');
+  e.preventDefault()
+
+  $('html, body').animate(
+    {
+      scrollTop: $($(this).attr('href')).offset().top,
+    },
+    400,
+    'linear'
+  )
+})
+
+</script>
+</html>
