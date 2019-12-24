@@ -579,7 +579,7 @@ $('.front-bg-dark').each(function() {
 
 
 
-$("#debug").append($(this).height() + "px");
+
 
 // Run the following when the window is resized, and also trigger it once to begin with.
 $(window).resize(function () {
@@ -595,6 +595,8 @@ $(window).resize(function () {
         } else {
             front_top.css('height', 32 + "%");
         }
+
+        $("#debug").append($(this).height() + "px");
     }
 
   front_resize_text_divs.each(function(){
