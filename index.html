@@ -28,7 +28,7 @@
 }
 
 .hero {
-    background-image: url('ellaper2.jpg');
+    background-image: url('ellaper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -252,11 +252,12 @@
 
 #front-title {
     font-family:Poppins, sans-serif;
-    
+    letter-spacing: 5px;
     font-weight:100;
 }
 
 #front-title-below {
+    letter-spacing: 5px;
     font-family:Georgia, serif;
     font-weight:300;
 }
@@ -267,6 +268,7 @@
     cursor: pointer;
     color: white;
     font-weight:500;
+    
     background-color:rgba(0, 0, 0, 0.25);
     border-color:rgb(230, 216, 209, 0.75);
     border-style:solid;
@@ -308,13 +310,13 @@
     <div class="container2">
         <div class="hero">
             <div class="front-bg" id="front-top" style="height:32%; background-color: rgba(255, 0, 0, 0.2);"></div>
-            <div class="front-resize-text front-bg" id="front-title" style="height:12%; background-color: rgba(0, 255, 0, 0.2);">
+            <div class="front-resize-text front-bg front-bg-dark" id="front-title" style="height:12%; background-color: rgba(0, 255, 0, 0.2);">
                 <h2 >Ella & Per</h2>
             </div>
-            <div class="front-resize-text front-bg" style="height:4%; background-color: rgba(0, 0, 255, 0.2);">
+            <div class="front-resize-text front-bg front-bg-dark" style="height:4%; background-color: rgba(0, 0, 255, 0.2);">
              
             </div>
-            <div class="front-resize-text front-bg" style="height:5.5%; background-color: rgba(255, 255, 0, 0.2);">
+            <div class="front-resize-text front-bg front-bg-dark" style="height:5.5%; background-color: rgba(255, 255, 0, 0.2);">
               <p id="front-title-below">July 25th | Hyssna, Sweden</p>
             </div>
             <div class="front-bg" style="height:15%; background-color: rgba(255, 0, 255, 0.2);"></div>
@@ -327,6 +329,7 @@
                         <div style="padding: 1vh;"><img src="arrow.png" id="front-bottom" style="width:1.2vh; min-width: 12px; min-height: 12px;  height:1.2vh;"></div>
                     </a>
             </div>
+            <div class="front-bg" style="height:20%; background-color: rgba(255, 255, 255, 0.2);"></div>
         </div>
     </div>
     <div class="info" id="testtest">
@@ -567,12 +570,16 @@ var front_top = $('#front-top');
 var front_bottom = $('#front-bottom');
 
 $('.front-bg').each(function() {
-    $(this).css("background-color", "rgba(255, 255, 255, 0.0)");
+    $(this).css("background-color", "rgba(0, 0, 0, 0.2)");
+});
+
+$('.front-bg-dark').each(function() {
+    $(this).css("background-color", "rgba(0, 0, 0, 0.2)");
 });
 
 $(".container").css('height', $(this).height() + "px");
 
-$("#debug").append($(this).height() + "px");
+
 
 var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
 if (delta > 0.0) {
@@ -582,7 +589,7 @@ if (delta > 0.0) {
 } else {
     front_top.css('height', 32 + "%");
 }
-
+$("#debug").append($(this).height() + "px");
 
 // Run the following when the window is resized, and also trigger it once to begin with.
 $(window).resize(function () {
