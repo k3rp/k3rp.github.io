@@ -571,6 +571,15 @@ $('.front-bg').each(function() {
 });
 
 $(".container").css('height', $(this).height() + "px");
+var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
+if (delta > 0.0) {
+adjustment = 0.32 - (delta+15)/$(window).height();
+// console.log(100*adjustment);
+front_top.css('height', 100*adjustment + "%");
+} else {
+front_top.css('height', 32 + "%");
+}
+
 
 // Run the following when the window is resized, and also trigger it once to begin with.
 $(window).resize(function () {
@@ -585,16 +594,6 @@ $(window).resize(function () {
         'line-height': height + 'px'
     })
   });
-
-  var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
-  if (delta > 0.0) {
-    adjustment = 0.32 - (delta+15)/$(window).height();
-    // console.log(100*adjustment);
-    front_top.css('height', 100*adjustment + "%");
-  } else {
-    front_top.css('height', 32 + "%");
-  }
-
 });
 
 $(window).trigger('resize');
