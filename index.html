@@ -577,7 +577,19 @@ $('.front-bg-dark').each(function() {
     $(this).css("background-color", "rgba(0, 0, 0, 0.2)");
 });
 
+function fit_front() {
+    $(".container").css('height', $(window).height() + "px");
+    var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
+    if (delta > 0.0) {
+        adjustment = 0.32 - (delta+15)/$(window).height();
+        // console.log(100*adjustment);
+        front_top.css('height', 100*adjustment + "%");
+    } else {
+        front_top.css('height', 32 + "%");
+    }
 
+    $("#debug").append($(window).height() + "px");
+}
 
 
 
@@ -586,17 +598,7 @@ $(window).resize(function () {
     var st = $(this).scrollTop();
 
     if (st == 0 || st > $(this).height()) {
-        $(".container").css('height', $(this).height() + "px");
-        var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
-        if (delta > 0.0) {
-            adjustment = 0.32 - (delta+15)/$(window).height();
-            // console.log(100*adjustment);
-            front_top.css('height', 100*adjustment + "%");
-        } else {
-            front_top.css('height', 32 + "%");
-        }
-
-        $("#debug").append($(this).height() + "px");
+        
     }
 
   front_resize_text_divs.each(function(){
@@ -613,6 +615,8 @@ $(window).resize(function () {
 });
 
 $(window).trigger('resize');
+
+fit_front();
 
 $('#front-more-information').on('click', function(e) {
     console.log('cliock');
