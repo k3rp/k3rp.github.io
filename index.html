@@ -301,22 +301,22 @@
 <body>
     <div class="container">
         <div class="hero">
-            <div class="front-bg" id="front-top" style="height:32vh; background-color: rgba(255, 0, 0, 0.2);"></div>
-            <div class="front-resize-text front-bg" id="front-title" style="height:12vh; background-color: rgba(0, 255, 0, 0.2);">
+            <div class="front-bg" id="front-top" style="height:32%; background-color: rgba(255, 0, 0, 0.2);"></div>
+            <div class="front-resize-text front-bg" id="front-title" style="height:12%; background-color: rgba(0, 255, 0, 0.2);">
                 <h2 >Ella & Per</h2>
             </div>
-            <div class="front-resize-text front-bg" style="height:4vh; background-color: rgba(0, 0, 255, 0.2);">
+            <div class="front-resize-text front-bg" style="height:4%; background-color: rgba(0, 0, 255, 0.2);">
              
             </div>
-            <div class="front-resize-text front-bg" style="height:5.5vh; background-color: rgba(255, 255, 0, 0.2);">
+            <div class="front-resize-text front-bg" style="height:5.5%; background-color: rgba(255, 255, 0, 0.2);">
               <p id="front-title-below">July 25th | Hyssna, Sweden</p>
             </div>
-            <div class="front-bg" style="height:15vh; background-color: rgba(255, 0, 255, 0.2);"></div>
-            <div class="front-resize-text front-bg" style="height:2.5vh; background-color: rgba(0, 255, 255, 0.2);">
+            <div class="front-bg" style="height:15%; background-color: rgba(255, 0, 255, 0.2);"></div>
+            <div class="front-resize-text front-bg" style="height:2.5%; background-color: rgba(0, 255, 255, 0.2);">
                <a href="" id="rsvp-top">RSVP</a>    
             </div>
-            <div class="front-bg" style="height:20vh; background-color: rgba(255, 255, 255, 0.2);"></div>
-            <div class="front-resize-text front-bg" style="height:2vh; background-color: rgba(0, 0, 0, 0.2);">
+            <div class="front-bg" style="height:20%; background-color: rgba(255, 255, 255, 0.2);"></div>
+            <div class="front-resize-text front-bg" style="height:2%; background-color: rgba(0, 0, 0, 0.2);">
                 <a href="#testtest" id="front-more-information"><p style="margin: 0 0;">More Information</p>
                         <div style="padding: 1vh;"><img src="arrow.png" id="front-bottom" style="width:1.2vh; min-width: 12px; min-height: 12px;  height:1.2vh;"></div>
                     </a>
@@ -500,7 +500,7 @@ function parallex_scrolling(aspect, vh, speed, class_name) {
     $(class_name).css("background-position-y", pos + "px");
 }
 
-function fade_hero_title(fade_dur = 5.0) {
+function fade_hero_title(fade_dur = 4.0) {
     var st = $(this).scrollTop();
     $('.hero-title').each(function() {
         var t1_min = $(this).offset().top - $(window).height();
@@ -566,6 +566,9 @@ $('.front-bg').each(function() {
 
 // Run the following when the window is resized, and also trigger it once to begin with.
 $(window).resize(function () {
+    $(".container").css('height', $(this).height() + "px");
+
+
   front_resize_text_divs.each(function(){
     //console.log($(this).css("background-color", "rgba(255, 255, 255, 0.0)"));
     // console.log('we in here');
@@ -580,11 +583,11 @@ $(window).resize(function () {
 
   var delta = front_bottom.offset().top + front_bottom.height() - ($(window).height());
   if (delta > 0.0) {
-      adjustment = 0.32 - (delta+15)/$(window).height();
-      // console.log(100*adjustment);
-      front_top.css('height', 100*adjustment + "vh");
+    adjustment = 0.32 - (delta+15)/$(window).height();
+    // console.log(100*adjustment);
+    front_top.css('height', 100*adjustment + "%");
   } else {
-    front_top.css('height', 32 + "vh");
+    front_top.css('height', 32 + "%");
   }
 
 });
