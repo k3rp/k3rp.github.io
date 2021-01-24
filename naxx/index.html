@@ -1,0 +1,269 @@
+<html>
+<body>
+</body>
+<style>
+
+.monospaceText {
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+    
+}
+
+.postext {
+    cursor: grab;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}    
+
+.Warrior {
+    background-image: url('https://raidplan.io/assets/img/icons/class/warrior.png');
+    background-size: 20px;
+}
+
+.Rogue {
+    background-image: url('https://raidplan.io/assets/img/icons/class/rogue.png');
+    background-size: 20px;
+}
+
+.Hunter {
+    background-image: url('https://raidplan.io/assets/img/icons/class/hunter.png');
+    background-size: 20px;
+}
+
+.Mage {
+    background-image: url('https://raidplan.io/assets/img/icons/class/mage.png');
+    background-size: 20px;
+}
+
+.Warlock {
+    background-image: url('https://raidplan.io/assets/img/icons/class/warlock.png');
+    background-size: 20px;
+}
+
+.Priest {
+    background-image: url('https://raidplan.io/assets/img/icons/class/priest.png');
+    background-size: 20px;
+}
+
+.Druid {
+    background-image: url('https://raidplan.io/assets/img/icons/class/druid.png');
+    background-size: 20px;
+}
+
+.Paladin {
+    background-image: url('https://raidplan.io/assets/img/icons/class/paladin.png');
+    background-size: 20px;
+}
+
+.Shaman {
+    background-image: url('https://raidplan.io/assets/img/icons/class/shaman.png');
+    background-size: 20px;
+}
+
+</style>
+<script>
+console.log('lol');
+
+const body = document.getElementsByTagName('body')[0];
+console.log(body);
+const div = document.createElement('div');
+body.appendChild(div);
+div.style.cssText = "background-image: url('https://raidplan.io/assets/img/raid/naxx/map/sapphiron.jpg'); width: 1082px; height:  600px;";
+
+
+const url = new URL(window.location.href);
+const csv = url.searchParams.get("csv");
+const initialPositions = [];
+const initialNames = [];
+const initialClasses = [];
+for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 5; j++) {
+        initialNames.push("");
+        initialClasses.push("");
+        let x = 40 + ((i / 8) * 1082);
+        let y = 40 + ((j / 5) * 600);
+        initialPositions.push({x: x, y:y});
+    }
+}
+if (csv) {
+    const csvArray = csv.split(',');
+    if (csvArray.length == 40 * 4) {
+        for (let i = 0; i < 40; i++) {
+            const x = parseInt(csvArray.shift());
+            const y = parseInt(csvArray.shift());
+            initialPositions[i] = {x: x, y: y};
+            initialNames[i] = csvArray.shift();
+            initialClasses[i] = csvArray.shift();
+        }
+    }
+} 
+
+const numbers = []
+const players = []
+const inputNames = []
+const inputClasses = []
+
+const final = document.createElement('div');
+final.style.cssText = "background-image: url('https://raidplan.io/assets/img/raid/naxx/map/sapphiron.jpg'); width: 1082px; height:  600px;";
+
+function update(idx, x, y, updateCsv = true) {
+    if (x && y) {
+        numbers[idx].style.left = x;
+        numbers[idx].style.top = y;
+        players[idx].cross.style.left = parseInt(final.offsetLeft) + parseInt(numbers[idx].style.left) - parseInt(div.offsetLeft);
+        players[idx].cross.style.top = parseInt(final.offsetTop) + parseInt(numbers[idx].style.top) - parseInt(div.offsetTop);
+        players[idx].wowClassAndName.style.left = players[idx].cross.style.left;
+        players[idx].wowClassAndName.style.top = parseInt(players[idx].cross.style.top) + 20;
+
+    }
+    players[idx].name.innerHTML = inputNames[idx].value + '(' + Math.floor(1 + (idx )/ 5) + ')';
+    players[idx].cross.className = inputClasses[idx].value;
+    players[idx].cross.classList.add('postext');
+    players[idx].cross.classList.add('monospaceText');
+
+    if (updateCsv) {
+        let csvText = '';
+        for (let i = 0; i < players.length; i++) {
+            if (i > 0) csvText += ',';
+            const left = numbers[i].style.left.substring(0, numbers[i].style.left.length-2);
+            const top = numbers[i].style.top.substring(0, numbers[i].style.top.length-2);
+            const player = players[i].name.innerHTML.substring(0, players[i].name.innerHTML.length-3);
+            csvText += left + ',' + top + ',' + player + ',' + inputClasses[i].value;
+        }
+        history.pushState({}, '', 'index.html?csv=' + csvText);
+    }
+}
+
+
+for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 5; j++) {
+        const sp = document.createElement('span')
+        div.appendChild(sp);
+        sp.innerHTML = i*5 + j + 1;
+        sp.className = 'postext';
+        sp.classList.add('monospaceText');
+        sp.style.userSelect = 'none';   
+        sp.style.left = initialPositions[j + 5*i].x;
+        sp.style.top = initialPositions[j + 5*i].y;
+        numbers.push(sp);
+        
+        sp.addEventListener('mousedown', e => {
+            let startPosX = e.clientX;
+            let startPosY = e.clientY;
+            const move = e => {
+                update(j + i * 5, e.clientX, e.clientY, false);
+            };
+            div.addEventListener('mousemove', move);
+            const up = e => {
+                div.removeEventListener('mousemove', move);
+                document.removeEventListener('mouseup', up);
+                update(j + i * 5, e.clientX, e.clientY, true);
+            };
+            document.addEventListener('mouseup', up);
+        });
+        
+
+    }
+}
+
+
+
+
+const names = document.createElement('div');
+body.appendChild(names);
+CLASSES = ['', 'Warrior', 'Rogue', 'Hunter', 'Mage', 'Warlock', 'Priest', 'Druid', 'Paladin', 'Shaman']
+for (let i = 0; i < 8; i++) {
+    const row = document.createElement('div');
+    row.style.display = 'flex';
+    row.style.flexDirection = 'row';
+    names.appendChild(row);
+    for (let j = 0; j < 5; j++) {
+        sp = document.createElement('div');
+        sp.innerHTML = '' + (j + i*5 + 1) + ': ';
+        sp.style.paddingRight = '5px';
+        sp.style.paddingLeft = '15px';
+        sp.style.width = '24px';
+        sp.style.textAlign = 'right';
+        row.appendChild(sp);
+        inp = document.createElement('input');
+        inp.style.width = '120px';
+        inp.value = initialNames[j + 5*i];
+        row.appendChild(inp);
+        inp.addEventListener('input', e => {
+            update(j + 5 * i, null, null);
+        });
+        inputNames.push(inp);
+
+        select = document.createElement('select');
+        row.appendChild(select);
+        for (const c of CLASSES) {
+            option = document.createElement('option');
+            option.innerHTML = c;
+            select.appendChild(option);
+        }
+        select.addEventListener('input', e => {
+            update(j + 5 * i, null, null);
+        });
+        select.value = initialClasses[j + 5*i];
+        inputClasses.push(select);
+    }
+}
+
+body.appendChild(final);
+
+for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 5; j++) {
+        const sp = document.createElement('div')
+        
+        final.appendChild(sp);
+        sp.className = 'postext';
+        sp.classList.add('monospaceText');
+        sp.style.userSelect = 'none';
+        //sp.innerHTML = '🞩';
+        sp.style.width = '20px';
+        sp.style.height = '20px';
+        const idx = players.length;
+
+        const wowClassAndName = document.createElement('div');
+        final.appendChild(wowClassAndName);
+        wowClassAndName.style.display = 'flex';
+        wowClassAndName.style.flexDirection = 'row';
+        wowClassAndName.style.position = 'absolute';
+        wowClassAndName.style.transform = 'translate(-50%, -50%)';
+
+        const wowClass = document.createElement('div');
+        wowClass.style.width = '20px';
+        wowClass.style.height = '20px';
+        wowClass.style.margin = '5px';
+        //wowClassAndName.appendChild(wowClass);
+
+        const name = document.createElement('span');
+        name.className = 'monospaceText';
+        name.style.userSelect = 'none';
+        //name.style.position = 'inline';
+        wowClassAndName.appendChild(name);
+        players.push({name: name, wowClass: wowClass, wowClassAndName: wowClassAndName, cross: sp});
+        update(j + i*5, numbers[j + i*5].style.left, numbers[j + i*5].style.top);
+
+        const down = e => {
+            const move = e => {
+                update(j + i * 5, e.clientX, parseInt(e.clientY) - parseInt(final.offsetTop), false);
+            };
+            final.addEventListener('mousemove', move);
+            const up = e => {
+                final.removeEventListener('mousemove', move);
+                document.removeEventListener('mouseup', up);
+                update(j + i * 5, e.clientX, parseInt(e.clientY) - parseInt(final.offsetTop), true);
+            };
+            document.addEventListener('mouseup', up);
+        }
+
+        sp.addEventListener('mousedown', down);
+        name.addEventListener('mousedown', down);
+    }
+}
+</script>
+
+</html>
