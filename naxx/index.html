@@ -133,6 +133,7 @@ final.className = 'sapphiron';
 
 
 function update(idx, x, y, updateCsv = true) {
+    if (idx) {
     if (x && y) {
         numbers[idx].style.left = x;
         numbers[idx].style.top = y;
@@ -146,6 +147,7 @@ function update(idx, x, y, updateCsv = true) {
     players[idx].cross.className = inputClasses[idx].value;
     players[idx].cross.classList.add('postext');
     players[idx].cross.classList.add('monospaceText');
+    }
 
     if (updateCsv) {
         let csvText = '';
@@ -164,7 +166,7 @@ function update(idx, x, y, updateCsv = true) {
 function updateMap(map) {
     div.className = map;
     final.className = map;
-    update(0);
+    update(null, null, null, true);
 }
 
 
