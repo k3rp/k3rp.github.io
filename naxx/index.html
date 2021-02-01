@@ -172,7 +172,7 @@ marker.style.cursor = 'none';
 marker.style.color = 'yellow';
 
 function update(idx, x, y, updateCsv = true) {
-    if (idx) {
+    if (idx != null) {
     if (x && y) {
         numbers[idx].style.left = x;
         numbers[idx].style.top = y;
