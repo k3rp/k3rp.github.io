@@ -15,7 +15,19 @@
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
-}    
+}
+
+.sapphiron {
+    background-image: url('https://raidplan.io/assets/img/raid/naxx/map/sapphiron.jpg'); 
+    width: 1082px; 
+    height:  600px;
+}
+
+.kelthuzad {
+    background-image: url('https://raidplan.io/assets/img/raid/naxx/map/kelthuzad-overhead.jpg'); 
+    width: 1082px; 
+    height:  600px;
+}
 
 .Warrior {
     background-image: url('https://raidplan.io/assets/img/icons/class/warrior.png');
@@ -68,9 +80,19 @@ console.log('lol');
 
 const body = document.getElementsByTagName('body')[0];
 console.log(body);
+
+const mapSelect = document.createElement('select');
+body.appendChild(mapSelect);
+const sapphOption = document.createElement('option');
+sapphOption.innerHTML = "sapphiron";
+mapSelect.appendChild(sapphOption);
+const ktOption = document.createElement('option');
+ktOption.innerHTML = "kelthuzad";
+mapSelect.appendChild(ktOption);
+
+
 const div = document.createElement('div');
 body.appendChild(div);
-div.style.cssText = "background-image: url('https://raidplan.io/assets/img/raid/naxx/map/sapphiron.jpg'); width: 1082px; height:  600px;";
 
 
 const url = new URL(window.location.href);
@@ -106,7 +128,7 @@ const inputNames = []
 const inputClasses = []
 
 const final = document.createElement('div');
-final.style.cssText = "background-image: url('https://raidplan.io/assets/img/raid/naxx/map/sapphiron.jpg'); width: 1082px; height:  600px;";
+
 
 function update(idx, x, y, updateCsv = true) {
     if (x && y) {
@@ -132,10 +154,28 @@ function update(idx, x, y, updateCsv = true) {
             const player = players[i].name.innerHTML.substring(0, players[i].name.innerHTML.length-3);
             csvText += left + ',' + top + ',' + player + ',' + inputClasses[i].value;
         }
-        history.pushState({}, '', 'index.html?csv=' + csvText);
+        history.pushState({}, '', 'index.html?map=' + mapSelect.value +'&csv=' + csvText);
     }
 }
 
+
+function updateMap(map) {
+    div.className = map;
+    final.className = map;
+    update(0);
+}
+
+
+mapSelect.addEventListener('input', e => {
+    updateMap(mapSelect.value);
+});
+
+const map = url.searchParams.get("map");
+if (map) {
+    mapSelect.value = map;
+} else {
+    mapSelect.value = 'sapphiron';
+}
 
 for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 5; j++) {
