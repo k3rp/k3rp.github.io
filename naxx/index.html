@@ -82,7 +82,6 @@ const body = document.getElementsByTagName('body')[0];
 console.log(body);
 
 const mapSelect = document.createElement('select');
-body.appendChild(mapSelect);
 const sapphOption = document.createElement('option');
 sapphOption.innerHTML = "sapphiron";
 mapSelect.appendChild(sapphOption);
@@ -297,6 +296,7 @@ for (let i = 0; i < 8; i++) {
 }
 
 body.appendChild(final);
+body.appendChild(mapSelect);
 
 for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 5; j++) {
